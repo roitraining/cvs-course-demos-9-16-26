@@ -2,9 +2,9 @@
 
 ## Overview
 
-This lab takes about 30 minutes. You use Gemini to turn a messy Cymbal Pharmacies operations memo into a decision-ready district briefing. You start with a plain request, improve it with a repeatable framework, then apply advanced techniques and meta-prompting.
+You are a district operations analyst at Cymbal Pharmacies. Every Monday you receive a messy dump of store texts, pharmacy wait-time exports, clinic calendars, and campaign notes. Your district leader needs a briefing they can run a call from, not a summary they have to rewrite.
 
-Pharmacy operations leaders review noisy inputs every week: wait-time notes, inventory alerts, clinic capacity, and campaign results. Better prompts produce briefings that a district leader can use in a Monday huddle without rewriting the model output.
+In this lab, you work that memo with Gemini. You start with a plain request, rebuild it using a repeatable 5-step framework, then apply persona instructions, delimiters, one-shot examples, and meta-prompting.
 
 ## Objectives
 
@@ -16,15 +16,6 @@ In this lab, you learn how to:
 - Use a one-shot example to lock tone and structure.
 - Use meta-prompting to improve a prompt before you rely on it.
 
-## Prerequisites
-
-- Access to Gemini Enterprise.
-- Comfort reading a short operations memo and judging whether an answer is useful.
-
-## Setup
-
-1. Sign in to Gemini Enterprise and keep this lab open.
-1. You will paste the same memo into several new chats. There is no Drive file to attach.
 
 <p align="left">
   <img src="images/cymbal-pharmacies-logo.png" width="45%" alt="Cymbal Pharmacies logo" />
@@ -34,13 +25,15 @@ In this lab, you learn how to:
 
 In this task, you see why prompt engineering matters before you learn a formal framework.
 
-Cymbal Pharmacies District 14 covers 18 neighborhood stores and 6 CymbalCare clinics near a large school system. Flu season is starting, Back-to-School product is still on endcaps, and pharmacy wait times spiked last week. You received the weekly ops dump below and need a briefing for tomorrow's district call.
+You cover District 14: 18 neighborhood stores and 6 CymbalCare clinics near a large school system. Flu season is starting, Back-to-School product is still on endcaps, and pharmacy wait times spiked last week. This week's ops dump is below.
 
 <p align="left">
   <img src="images/cymbal-district-huddle.png" width="70%" alt="Cymbal Pharmacies district leaders reviewing a briefing before a huddle" />
 </p>
 
-1. Start a new chat and paste the memo:
+1. Sign in to Gemini Enterprise (or the Gemini app) and start a new chat.
+
+2. Paste the ops dump below into the chat. Do not press Enter yet.
 
 ```text
 CYMBAL PHARMACIES — DISTRICT 14 WEEKLY OPS DUMP
@@ -60,14 +53,15 @@ Campaign: ExtraValue members get $5 off a flu shot through September 30. Marketi
 Random: Corporate asked for "a one-pager on where we are hurting and what to do this week." Also someone forwarded a rumor that a nearby competitor is offering same-day flu shots with no appointment. Not verified.
 ```
 
-1. Ask Gemini to summarize the memo using only a plain request:
+3. Add this plain request under the memo, then press Enter:
 
 ```text
 Summarize this memo.
 ```
 
-1. Review the output. Note whether it is too long, too generic, missing owners, or burying the items a district leader must act on this week.
-1. Start a new chat, paste the same memo, and try a slightly improved prompt:
+4. Review the output. Note whether it is too long, too generic, missing owners, or burying the items a district leader must act on this week.
+
+5. Start a new chat, paste the same memo, and try a slightly improved prompt:
 
 ```text
 You are a district operations analyst for Cymbal Pharmacies.
@@ -76,7 +70,7 @@ Use only the facts in the memo.
 Return 4 bullets: where we are hurting, what is working, this week's actions, and what is still unverified.
 ```
 
-1. Compare the two responses. The second prompt should usually be easier to run a huddle from because it provides a role, an audience, and a target format.
+6. Compare the two responses. The second prompt should usually be easier to run a huddle from because it provides a role, an audience, and a target format.
 
 ## Task 2. Use the 5-step framework
 
@@ -91,7 +85,8 @@ The five steps help turn a vague request into a repeatable prompt:
 - Iteration: tell the model what to do if the result is incomplete or uncertain.
 
 1. Start a new chat and paste the District 14 memo again.
-1. Copy and paste the framework prompt:
+
+2. Copy and paste the framework prompt:
 
 ```text
 Task:
@@ -117,11 +112,10 @@ Return:
 4. One question to ask Store 2482 and one question to ask Store 3305
 ```
 
-1. Review whether Gemini stayed inside the memo and produced actions a real district team could take.
-1. If the briefing is still too essay-like, reply: "Shorten each action to one sentence and move unverified items to a separate list."
+3. Review whether Gemini stayed inside the memo and produced actions a real district team could take.
 
-<!-- TODO IMAGE: Gemini Enterprise response showing a structured district briefing with numbered actions -->
-![Structured district briefing generated from the 5-step prompt](images/five-step-briefing.png)
+4. If the briefing is still too essay-like, reply: "Shorten each action to one sentence and move unverified items to a separate list."
+
 
 ## Task 3. Apply advanced prompting techniques
 
@@ -145,7 +139,7 @@ Behavior rules:
 Now help me write a huddle-ready briefing from the District 14 ops dump in this chat.
 ```
 
-1. You do not need to repeat the persona in every follow-up as long as you stay in this chat.
+2. You do not need to repeat the persona in every follow-up as long as you stay in this chat.
 
 ### Part B. Separate instructions from the format with delimiters
 
@@ -179,7 +173,7 @@ Unverified:
 </briefing-format>
 ```
 
-1. Check whether Gemini stayed inside the template and avoided extra sections.
+2. Check whether Gemini stayed inside the template and avoided extra sections.
 
 ### Part C. Use a one-shot example to lock the style
 
@@ -211,8 +205,8 @@ Unverified:
 Now write a huddle note in the same format for District 14 using only facts from the current chat. Do not invent metrics.
 ```
 
-1. Compare Parts A, B, and C. Which version would you actually paste into the district Slack channel?
-1. Notice that the one-shot example is most useful when you already have a note your leaders liked. The richer the example, the less the model has to guess.
+2. Compare Parts A, B, and C. Which version would you actually paste into the district Slack channel?
+3. Notice that the one-shot example is most useful when you already have a note your leaders liked. The richer the example, the less the model has to guess.
 
 ## Task 4. Improve the prompt with meta-prompting
 
@@ -241,17 +235,17 @@ Use clean Markdown with bold headers and bullets.
 --- PROMPT END ---
 ```
 
-1. Copy the improved prompt. Open a new chat, paste the District 14 memo, then paste the improved prompt.
-1. Compare the result with your Task 3 Part C note. Did the rewritten prompt reduce fluff or invented detail?
+2. Copy the improved prompt. Open a new chat, paste the District 14 memo, then paste the improved prompt.
+3. Compare the result with your Task 3 Part C note. Did the rewritten prompt reduce fluff or invented detail?
 
 ## Task 5. Apply the techniques to your own work
 
 In this task, you transfer the pattern to a real briefing you owe someone.
 
 1. Pick a task from your role: a store recap, a campaign readout, a clinic schedule problem, or a vendor issue.
-1. Write a raw first prompt and note where the output falls short.
-1. Rewrite it with the 5-step framework. Optionally add a persona block, delimiters, or a one-shot example from a note you were proud of.
-1. Be ready to share the before and after with the group and name the technique that helped most.
+2. Write a raw first prompt and note where the output falls short.
+3. Rewrite it with the 5-step framework. Optionally add a persona block, delimiters, or a one-shot example from a note you were proud of.
+4. Be ready to share the before and after with the group and name the technique that helped most.
 
 ## Congratulations!
 

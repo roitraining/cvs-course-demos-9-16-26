@@ -2,163 +2,179 @@
 
 ## Overview
 
-This lab takes about 30 minutes. You turn a rough dashboard sketch into a working page shell with Gemini Canvas, then refine the layout with focused follow-up prompts. You are not building a production app. You are learning how store and district leaders can go from a whiteboard to something clickable in one sitting.
+You are a district manager for Cymbal Pharmacies. Tomorrow morning you run a huddle with 18 store managers, and the numbers you need sit in four different spreadsheets: pharmacy wait times, low stock, flu-shot capacity, and open merchandising issues. You want one screen instead.
 
-Cymbal Pharmacies district managers watch four numbers before they call a store: pharmacy wait time, low-stock SKUs, immunization slots, and open cases. A simple dashboard beats a stack of spreadsheets when the huddle starts in ten minutes.
+In this lab, you sketch that screen, then use Gemini Canvas to turn the sketch into a working dashboard page. You also see why a detailed prompt beats a short one.
+
+<p align="left">
+  <img src="images/cymbal-pharmacy-storefront.png" width="70%" alt="Cymbal Pharmacies neighborhood storefront" />
+</p>
 
 ## Objectives
 
 In this lab, you learn how to:
 
-- Translate a low-fidelity UI sketch into a structured web layout.
-- Use Gemini Canvas to generate a dashboard shell from an image and a short prompt.
-- Compare a vague prompt with a tighter prompt that stays faithful to the sketch.
-- Refine a generated interface with focused follow-up prompts instead of rebuilding it.
+- Sketch a dashboard layout before you write any prompt.
+- Generate a working page in Gemini Canvas from a sketch.
+- Compare what Canvas builds from a short prompt versus a detailed prompt.
+- Improve the styling with follow-up prompts instead of starting over.
 
-## Prerequisites
+## Task 1. Sketch the dashboard
 
-- Access to the Gemini app at [gemini.google.com](https://gemini.google.com/app).
-- A phone or screenshot tool if you want to use your own sketch. An example sketch is provided.
+In this task, you draw the screen you want. Canvas builds a much better page when it can see a layout.
 
-> [!NOTE]
-> At the time this lab was written, the Canvas tool was not supported in Gemini Enterprise. Use the standard Gemini app for this lab.
+Your dashboard needs four regions:
 
-## Setup
+| Region | Contents |
+|---|---|
+| Header | The title **Cymbal Pharmacies Store Ops**, plus a district name and today's date |
+| KPI cards | Four cards: **Rx Wait Time**, **Low Stock SKUs**, **Flu Shot Slots**, and **Open Cases** |
+| Charts | Two placeholders: wait time by hour, and immunizations this week |
+| Store table | One row per store, with columns for store, wait time, flu slots, open cases, and next action |
 
-1. Open [Gemini](https://gemini.google.com/app) and sign in.
-1. Review the Cymbal Pharmacies store-ops scenario below so your sketch has a job to do.
+1. Take a sheet of paper or open a whiteboard.
+2. Draw a labeled box for each region in the table above. Put the header across the top, the four cards in a row beneath it, the two charts side by side, and the table at the bottom.
+3. Stop drawing. Do not add colors, icons, logos, or extra panels.
+4. Take a photo of your sketch with your phone and send it to yourself so you can paste it into a browser.
 
-<p align="left">
-  <img src="images/cymbal-pharmacies-logo.png" width="45%" alt="Cymbal Pharmacies logo" />
-</p>
-
-## Task 1. Sketch the store operations dashboard
-
-In this task, you design the page before you ask Canvas to write code.
-
-You are a district manager covering school-adjacent Cymbal Pharmacies stores. Tomorrow's huddle needs one screen that shows which stores are missing the 15-minute pharmacy ready-time target, which immunization boards are empty, and which merchandising cases are still open after yesterday's walkthrough.
+> [!TIP]
+> If you would rather not draw, skip steps 1 through 4 and use the sketch below. Right-click it and copy it, then use it everywhere this lab says "your sketch."
 
 <p align="left">
-  <img src="images/cymbal-pharmacy-storefront.png" width="70%" alt="Cymbal Pharmacies storefront representing the stores on the district dashboard" />
-</p>
-
-The first version of the dashboard should include:
-
-- A header with the title **Cymbal Pharmacies Store Ops** and a subtitle for the district and date
-- KPI cards for **Rx Wait Time**, **Low Stock SKUs**, **Flu Shot Slots**, and **Open Cases**
-- Two chart placeholders: wait time by hour, and immunizations this week
-- A table of stores with columns for store, wait time, flu slots, open cases, and next action
-
-1. On paper or a whiteboard, draw a rough wireframe with those regions.
-1. Keep the drawing messy on purpose. Canvas needs structure, not illustration quality.
-
-> [!NOTE]
-> Focus on structure, not styling. Boxes and labels are enough.
-
-If you do not want to draw, use the example sketch:
-
-<p align="left">
-  <img src="images/store-ops-dashboard-sketch.png" width="75%" alt="Hand-drawn wireframe of the Cymbal Pharmacies Store Ops dashboard with KPI cards, two charts, and a store table" />
+  <img src="images/store-ops-dashboard-sketch.png" width="75%" alt="Hand-drawn wireframe showing a header, four KPI cards, two charts, and a store table" />
   <br>
-  <em>Example Store Ops wireframe. You may use this image if you skip the paper sketch.</em>
+  <em>Example Store Ops wireframe</em>
 </p>
 
-## Task 2. Generate the first UI from the sketch
+## Task 2. Build a first version with a short prompt
 
-In this task, you see how much a prompt changes Canvas output when the same sketch is attached.
+In this task, you give Canvas the sketch and almost no instructions. The result shows you what Canvas assumes when you do not tell it what you want.
 
-1. In Gemini, click the **+** icon and select **Canvas** from the Tools list.
+1. Open [Gemini](https://gemini.google.com/app) and create a new chat.
+
+> [!NOTE]
+> Use the Gemini app for this lab. Canvas is not available in Gemini Enterprise.
+
+2. Click the **+** icon, then select **Canvas** from the Tools list.
 
 <!-- TODO IMAGE: Gemini app Tools menu with Canvas selected -->
 ![Canvas selected in the Gemini Tools list](images/canvas-tool.png)
 
-1. Copy the example sketch from this lab (or a photo of your own sketch) and paste it into the prompt window.
-1. Start with a brief prompt so you can see how Gemini interprets the image:
+3. Paste your sketch into the prompt box.
+
+4. Type the following prompt and press Enter:
 
 ```text
 Program this dashboard.
 ```
 
-1. Wait for generation to finish. Open the **Code** tab if you want to watch the HTML, CSS, and JavaScript appear.
-1. Open the **Preview** tab. You should see a dashboard shell, even if the details are invented.
+5. Wait for Canvas to finish writing code. Click the **Preview** tab to see the page.
 
-<!-- TODO IMAGE: Canvas Preview tab showing the first Store Ops dashboard shell -->
 ![First Canvas preview of the Store Ops dashboard](images/canvas-preview-v1.png)
 
-1. Click **New chat**, select **Canvas** again, and paste the same sketch. Run the tighter prompt below:
+6. Compare the preview against your sketch. Find two things Canvas added, renamed, or left out. You will fix them in the next task.
+
+> [!NOTE]
+> Short prompts leave the details to Canvas. Expect invented card names, extra panels, or a search box nobody asked for.
+
+## Task 3. Rebuild the page with a detailed prompt
+
+In this task, you start over with the same sketch and a prompt that names the role, the regions, the card labels, and what Canvas may not add.
+
+1. Click **New chat**.
+
+2. Click the **+** icon and select **Canvas** again.
+
+3. Paste your sketch into the prompt box.
+
+4. Read the prompt below so you can see how much of it is instruction rather than description. Then paste it and press Enter:
 
 ```text
-You are a senior front-end developer designing an internal store operations dashboard for Cymbal Pharmacies district managers.
+You are a senior front-end developer building an internal store operations dashboard for Cymbal Pharmacies district managers.
 
-Use the attached sketch to create the first version of the dashboard layout.
+Use the attached sketch to build the first version of the dashboard.
 
-Steps:
-1. Build a clean, responsive dashboard shell using HTML, CSS, and JavaScript.
-2. Match the sketch structure as closely as possible.
+Requirements:
+1. Build a clean, responsive page using HTML, CSS, and JavaScript.
+2. Match the layout in the sketch as closely as possible.
 3. Include a header, four KPI cards, two chart placeholders, and a store table.
-4. Label the KPI cards: Rx Wait Time, Low Stock SKUs, Flu Shot Slots, and Open Cases.
-5. Use sample data for school-adjacent neighborhood pharmacies. Do not invent clinical advice.
-6. Keep the design simple, accessible, and readable.
-7. Do not add live APIs, logins, or backend integrations yet.
+4. Label the KPI cards exactly: Rx Wait Time, Low Stock SKUs, Flu Shot Slots, and Open Cases.
+5. Fill the table with sample data for eight neighborhood pharmacies.
+6. Keep the design simple, accessible, and easy to read.
+7. Do not add logins, maps, chat widgets, live APIs, or backend code.
+8. Do not include patient names, prescription details, or clinical advice.
 
-Output:
-- Return only the code needed for the layout.
+Return only the code needed for this page.
 ```
 
-1. Compare the two previews. The second version should stay closer to the wireframe and invent less behavior, because the prompt asked for a shell with named cards.
+5. Click **Preview** when the code finishes.
 
-> [!TIP]
-> If Canvas adds a fake map, a chat widget, or a patient list, tell it to remove anything that is not in the sketch. District dashboards should not display protected health information.
+6. Compare this page with the one from Task 2. This version should match your sketch more closely and invent less.
 
-## Task 3. Refine the UI without changing the structure
-
-In this task, you polish the page so a district leader can scan it in a huddle.
-
-1. Stay in the tighter-prompt chat and ask:
+7. If Canvas still added something you did not ask for, send this follow-up:
 
 ```text
-Refine the dashboard styling while keeping the exact same overall layout.
-
-Improve the following:
-- Spacing and alignment
-- Typography and visual hierarchy
-- KPI card styling
-- Data table readability
-- Visual consistency across the page
-- Hover states for cards and table rows
-
-Use a professional navy and teal palette that fits Cymbal Pharmacies.
-Do not add chart libraries, CSV upload, or backend logic.
-Keep this as a front-end dashboard shell that is ready for later data integration.
+Remove anything that is not in the sketch.
 ```
-
-1. Try one or two smaller refinements, such as:
-   - Highlight any store whose Rx wait time is over 15 minutes
-   - Make the Open Cases column easier to scan
-   - Add a last-updated timestamp in the header
-   - Reduce visual noise so the four KPI cards dominate the first glance
-
-<!-- TODO IMAGE: Canvas Preview tab after styling refinements, navy and teal Store Ops dashboard -->
-![Refined Store Ops dashboard preview](images/canvas-preview-v2.png)
-
-1. Confirm the final UI still matches the sketch. If Canvas drifted, say: "Restore the original regions from the sketch and keep the new styling."
 
 ### Success criteria
 
-- The preview shows four named KPI cards and a store table.
-- A vague first prompt and a tighter second prompt produced visibly different discipline.
-- Refinement prompts changed style more than structure.
+- The page shows a header, four correctly named KPI cards, two charts, and a store table.
+- The layout matches your sketch.
+- No patient or prescription information appears anywhere on the page.
 
-## Task 4. Optional: generate a mockup, then program it
+## Task 4. Polish the styling
 
-In this task, you combine image generation with Canvas, which is useful when nobody has a paper sketch.
+In this task, you improve how the page looks without changing where anything sits. Stay in the same chat you used for Task 3.
 
-1. Open Gemini in a new tab and select **Create images**.
-1. Describe a simple internal tool from your work in one or two sentences, then list four features.
-1. Ask Gemini for a simple dashboard-style layout image.
-1. Open a new chat, select **Canvas**, paste the mockup, and ask Gemini to program the UI as a page shell, not a full product.
-1. If the first result is too loose, follow up with a prompt that names the regions and forbids extra widgets.
+1. Paste the following prompt and press Enter:
+
+```text
+Improve the styling of this dashboard while keeping the exact same layout.
+
+Improve:
+- Spacing and alignment
+- Typography and visual hierarchy
+- KPI card styling
+- Table readability
+- Hover states for cards and table rows
+
+Use a professional navy and teal color palette.
+Do not add chart libraries, file uploads, or backend code.
+Do not move or rename any region.
+```
+
+2. Click **Preview** and confirm the regions did not move.
+3. Ask for one more small change. Paste either of these:
+
+```text
+Highlight any store whose Rx wait time is over 15 minutes.
+```
+
+```text
+Add a last-updated timestamp to the header.
+```
+
+4. If Canvas rearranged the page, send this correction:
+
+```text
+Restore the layout from the sketch and keep the new styling.
+```
+
+
+> [!TIP]
+> Notice that these prompts ask for appearance changes only. Keeping structure and styling in separate rounds is what stops Canvas from rebuilding the page on you.
+
+## Task 5. Bonus: build a tool for your own work
+
+In this task, you run the same loop on an idea from your own job. There is no Cymbal scenario here.
+
+1. Write down one internal tool you wish you had. Keep it to one screen.
+2. List the four numbers or lists that screen must show.
+3. Open a new chat, select **Canvas**, and write a prompt that names your role, the four regions, and what Canvas may not add. Do not attach a sketch this time.
+4. Click **Preview**, then send one follow-up prompt that fixes the biggest problem you see.
+5. Be ready to describe your tool and the follow-up prompt to the group.
 
 ## Congratulations!
 
-You sketched a Cymbal Pharmacies Store Ops dashboard, generated a Canvas shell from that image, compared a vague prompt with a tighter one, and refined the UI without rebuilding it. That vibe-coding loop is what district and digital partners can reuse the next time someone says, "Can we just mock that up before the meeting?"
+You sketched a store operations dashboard, built it twice in Gemini Canvas, and saw how a detailed prompt produces a page that matches your intent while a short prompt produces guesses. You also learned to change styling and structure in separate rounds. Use this loop the next time someone asks whether you can mock something up before a meeting.

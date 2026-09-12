@@ -2,9 +2,9 @@
 
 ## Overview
 
-This lab takes about 20 minutes. You upload a store walkthrough video and a merchandising standards checklist, then ask Gemini to cross-reference them. The result is a timestamped audit that a district leader can send to a store manager.
+A regional manager just submitted a walkthrough video from Cymbal Pharmacies Store 2482. Store Operations needs to know whether the store meets company merchandising and pharmacy standards before Friday's district huddle, and nobody has time to drive out and look.
 
-Cymbal Pharmacies runs neighborhood stores with a front-shop, pharmacy waiting area, and, in many locations, a CymbalCare clinic. Field merchandising and store operations use short walkthrough videos between formal audits. Your job is to turn one of those videos into a structured, cited report.
+In this lab, you give Gemini the video and the standards checklist together. Gemini produces a timestamped audit with cited standards sections, and you turn the top findings into a corrective action note for the store manager.
 
 ## Objectives
 
@@ -15,44 +15,28 @@ In this lab, you learn how to:
 - Ask Gemini to produce structured, timestamped findings from unstructured video.
 - Turn audit findings into a manager-ready corrective action note.
 
-## Prerequisites
-
-- Access to Gemini Enterprise with file upload enabled.
-- The store walkthrough video supplied by your instructor (MP4 preferred).
-- Ability to copy the standards checklist from this lab into the chat.
-
-## Setup
-
-1. Sign in to Gemini Enterprise in your browser and start a new chat.
-1. Save the instructor-provided walkthrough video to your computer as an MP4.
-1. Skim the **Cymbal Pharmacies Visual Merchandising and Store Standards** checklist in Task 1 so you know what "good" looks like before Gemini scores the store.
-
-> [!IMPORTANT]
-> Your instructor will provide the walkthrough video. If the file is larger than your tenant allows, ask for a shorter clip. Many licenses cap uploads near 50 MB. Convert the file to MP4 if Gemini rejects the format.
-
-> [!NOTE]
-> This lab does not use Google Drive. You upload the video from your computer and paste the standards checklist as text.
 
 ## Task 1. Upload the video and run the audit
 
-In this task, you give Gemini both the standards and the footage, then request a formal audit of Store 2482.
+In this task, you give Gemini both the standards and the footage, then request a formal audit.
 
-<p align="left">
-  <img src="images/cymbal-pharmacies-logo.png" width="45%" alt="Cymbal Pharmacies logo" />
-</p>
-
-Cymbal Pharmacies Store Operations asked you to review a walkthrough from **Store 2482** before Friday's district huddle. The store sits next to a high school, so Back-to-School endcaps and the pharmacy waiting area are in scope.
+Store 2482 sits next to a high school, so the Back-to-School endcaps and the pharmacy waiting area both matter here.
 
 <p align="left">
   <img src="images/cymbal-pharmacy-storefront.png" width="70%" alt="Cymbal Pharmacies storefront used as the Store 2482 setting" />
 </p>
 
-1. Click **+ Add files** and upload the instructor-provided walkthrough video from your computer.
+1. Sign in to Gemini Enterprise (or the Gemini app) and start a new chat.
 
-<!-- TODO IMAGE: Gemini Enterprise file picker after a local MP4 walkthrough video has been attached -->
+2. Click **+ Add from Drive** and paste the following URL to a video file of a pharmacy store walkthrough:
+
+```
+https://drive.google.com/file/d/11uWTjlCOklA2lELtAVcFyb85Vp71A0ka/view?usp=sharing
+```
+
 ![Walkthrough video attached to the Gemini Enterprise chat](images/video-attached.png)
 
-1. Copy and paste the standards checklist into the same chat:
+3. Copy and paste the standards checklist below into the same chat. Do not press Enter yet.
 
 ```text
 CYMBAL PHARMACIES
@@ -89,7 +73,7 @@ SECTION 5. BRAND AND SIGNING
 5.3 The pharmacy shield and CymbalCare mark must be lit and unobstructed during open hours.
 ```
 
-1. Copy and paste the following prompt, then press Enter:
+4. Below the standards checklist, copy and paste the following prompt, then press Enter:
 
 ```text
 Role: You are the Primary Store Standards Manager for Cymbal Pharmacies, conducting a formal virtual audit of Store 2482.
@@ -109,7 +93,7 @@ Output format:
 Use only the video and the standards text. Do not invent store conditions that are not visible.
 ```
 
-1. Review the output. For at least two findings, jump to the timestamp in the video and confirm that Gemini described what is actually on screen.
+5. Review the output. For at least two findings, jump to the timestamp in the video and confirm that Gemini described what is actually on screen.
 
 > [!TIP]
 > If Gemini writes a long narrative instead of the audit table, reply: "Reformat the Audit Log as a markdown table with the columns requested."
@@ -127,16 +111,16 @@ In this task, you use follow-up prompts to turn a generic audit into something a
 1. Pick one finding from the Audit Log and ask:
 
 ```text
-For the finding at [timestamp], what specific corrective action should the store associate take, which role owns it (front-shop lead, pharmacist in charge, or store manager), and how long should it realistically take to fix during open hours?
+For the finding at 00:23 - 00:25, what specific corrective action should the store associate take, which role owns it (front-shop lead, pharmacist in charge, or store manager), and how long should it realistically take to fix during open hours?
 ```
 
-1. Ask Gemini to reprioritize the findings for a different audience:
+2. Ask Gemini to reprioritize the findings for a different audience:
 
 ```text
 Re-rank all findings by customer experience risk rather than chronological order. Which three are most likely to cause a complaint, a wait-time spike, or a privacy issue today?
 ```
 
-1. Ask one pharmacy-specific follow-up even if the video is mostly front-shop:
+3. Ask one pharmacy-specific follow-up even if the video is mostly front-shop:
 
 ```text
 Based only on what is visible, what can you say about the pharmacy waiting area, consultation window, and immunization signing? If the video does not show those areas, say so and list the three shots a district leader should capture on the next walkthrough.
@@ -159,14 +143,14 @@ Requirements:
 - End with one sentence offering help if the store needs a reset kit or extra hours.
 ```
 
-1. Review the draft. Would you send it as-is? Edit anything that overstates a finding or cites a section the video did not support.
+2. Review the draft. Would you send it as-is? Edit anything that overstates a finding or cites a section the video did not support.
 
 ## Task 4. Try the same method on your own video
 
 In this task, you transfer the workflow to footage you control.
 
 1. If time allows, record a 30-to-60-second clip of a public retail space, a training store, or a staged shelf in the classroom. Do not record patients, prescriptions, or any protected health information.
-1. Start a new chat, upload the clip, paste a short checklist you write yourself, and ask for a timestamped audit.
+2. Start a new chat, upload the clip, paste a short checklist you write yourself, and ask for a timestamped audit.
 
 > [!WARNING]
 > Do not film real patients, prescription labels, or identifiable health information. If the instructor video includes a pharmacy counter, treat any visible paperwork as out of scope and ask Gemini to ignore it.
