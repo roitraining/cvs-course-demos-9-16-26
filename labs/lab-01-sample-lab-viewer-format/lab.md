@@ -21,18 +21,18 @@ In this lab, you learn how to:
 
 1. Open this repository in your editor.
 2. Locate this folder: `labs/lab-01-sample-lab-viewer-format/`.
-3. Keep `README.md` and `images/` together when you copy the pattern for a new lab.
+3. Keep `lab.md` and `images/` together when you copy the pattern for a new lab.
 
 ## Task 1. Preview the lab in the Lab Viewer
 
 In this task, you open the lab manual in the HTML Lab Viewer.
 
 1. Push your repo to GitHub (or use a raw Markdown URL you can fetch).
-1. Open the Lab Viewer and pass this lab with the `lab` query parameter (folder URL or raw `README.md` URL).
+1. Open the Lab Viewer and pass this lab with the `lab` query parameter (folder URL or raw `lab.md` URL).
 1. Confirm the table of contents lists Overview, Objectives, Tasks, and Congratulations.
 
 > [!NOTE]
-> If you point the viewer at a folder URL, it loads `README.md` by default.
+> Point the viewer at the `lab.md` file (or a folder URL that resolves to it).
 
 ## Task 2. Add a placeholder screenshot reference
 
@@ -52,4 +52,4 @@ In this task, you see how images are linked for the viewer.
 
 ## Congratulations!
 
-You reviewed the ROI lab manual shape used with the HTML Lab Viewer. Copy `labs/lab-NN-slug/README.md` plus an `images/` folder for each new lab, and follow `.agents/skills/lab-generator/SKILL.md` when generating content.
+You reviewed the ROI lab manual shape used with the HTML Lab Viewer. Copy `labs/lab-NN-slug/lab.md` plus an `images/` folder for each new lab, and follow `.agents/skills/lab-generator/SKILL.md` when generating content.
