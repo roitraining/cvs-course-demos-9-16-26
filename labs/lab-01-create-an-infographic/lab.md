@@ -2,9 +2,13 @@
 
 ## Overview
 
+<p align="left">
+  <img src="images/cymbal-pharmacy-storefront.png" width="70%" alt="Cymbal Pharmacies neighborhood storefront with a back-to-school window display" />
+</p>
+
 Cymbal Pharmacies is a national neighborhood pharmacy retailer with a pharmacy counter in every store and CymbalCare clinics in larger sites. Marketing needs a promotional infographic for the Back-to-School Super Sale, and it has to look like a pharmacy campaign, not a big-box school-supply ad.
 
-In this lab, you generate that infographic with Gemini. You start with a one-line request, replace it with a detailed prompt, compare the two results, then refine the winner.
+The Marketing team needs a horizontal infographic for the **Back-to-School Super Sale**. The brief: show the contrast between the stress of August spending and the relief a neighborhood pharmacy can provide. The asset must include school supplies, kids wellness items, photo prints, ExtraValue member savings, and the Cymbal Pharmacies logo.
 
 ## Objectives
 
@@ -19,11 +23,6 @@ In this lab, you learn how to:
 
 In this task, you attach the Cymbal Pharmacies logo, try a short ad request, then send a detailed prompt so you can see how much specificity changes the image.
 
-The Marketing team needs a horizontal infographic for the **Back-to-School Super Sale**. The brief: show the contrast between the stress of August spending and the relief a neighborhood pharmacy can provide. The asset must include school supplies, kids wellness items, photo prints, ExtraValue member savings, and the Cymbal Pharmacies logo.
-
-<p align="left">
-  <img src="images/cymbal-pharmacy-storefront.png" width="70%" alt="Cymbal Pharmacies neighborhood storefront with a back-to-school window display" />
-</p>
 
 1. Sign in to Gemini Enterprise (or the Gemini app) in your browser. Start a new chat.
 
@@ -32,7 +31,7 @@ The Marketing team needs a horizontal infographic for the **Back-to-School Super
 
 ![Tools menu with the images tool selected](images/images-tool.png)
 
-3. Copy the Cymbal Pharmacies logo from this lab and paste it into the chat:
+3. Copy the Cymbal Pharmacies logo below, and paste it into the chat:
 
 <p align="left">
   <img src="images/cymbal-pharmacies-logo.png" width="50%" alt="Cymbal Pharmacies logo" />
@@ -48,7 +47,7 @@ Create a Back-to-School ad for Cymbal Pharmacies. Use the attached logo.
 
 5. Review the first image. Note what is missing or generic: campaign offers, readable text, pharmacy-specific products, or a layout Marketing could actually post.
 
-6. Stay in the same chat. Copy and paste this detailed prompt, then press Enter:
+6. Create a new chat, and paste the logo again. This time, copy and paste the detailed prompt below, then press Enter:
 
 ```text
 You are a data visualization artist who creates infographics with dramatic, physical metaphors. Create a striking, horizontal infographic-style image promoting the "Cymbal Pharmacies: Back-to-School Super Sale."
