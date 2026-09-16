@@ -6,7 +6,7 @@ These labs use **Cymbal Pharmacies**, a fictional national neighborhood pharmacy
 
 ## Course labs
 
-Click a lab name to open it (right-Click on a link to open it in a new tab).
+Click a lab name to open it (right-click on a link to open it in a new tab).
 
 | # | Lab | Role it speaks to | What learners do |
 |---|---|---|---|
